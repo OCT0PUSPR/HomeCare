@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Briefcase } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 
 const Careers = () => {
@@ -26,7 +28,14 @@ const Careers = () => {
       <section className="section">
         <div className="container">
           <div className="about-story">
-            <div className="about-story-content" style={{flex: '1'}}>
+            <motion.div
+              className="about-story-content"
+              style={{ flex: '1' }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h2>Join Our Team</h2>
               <p>
                 If you are a committed professional healthcare provider yearning for growth
@@ -40,24 +49,39 @@ const Careers = () => {
               </p>
               <p>
                 You can also reach out to us directly at{' '}
-                <a href="mailto:career@emirateshomecare.ae" style={{color: '#1a6e5c', fontWeight: '600'}}>
+                <a href="mailto:career@emirateshomecare.ae" style={{ color: 'var(--primary)', fontWeight: '600' }}>
                   career@emirateshomecare.ae
                 </a>{' '}
                 or{' '}
-                <a href="mailto:hr@emirateshomecare.ae" style={{color: '#1a6e5c', fontWeight: '600'}}>
+                <a href="mailto:hr@emirateshomecare.ae" style={{ color: 'var(--primary)', fontWeight: '600' }}>
                   hr@emirateshomecare.ae
                 </a>
               </p>
-            </div>
-            <div className="about-story-image" style={{flex: '1'}}>&#128188;</div>
+            </motion.div>
+            <motion.div
+              className="about-story-image"
+              style={{ flex: '1' }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Briefcase size={72} color="#94a3b8" strokeWidth={1} />
+            </motion.div>
           </div>
         </div>
       </section>
 
       <section className="section section-light">
         <div className="container">
-          <div className="form-container">
-            <h2 style={{textAlign: 'center', color: '#2c3e50', marginBottom: '30px'}}>Join Our Talent Pool</h2>
+          <motion.div
+            className="form-container"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{ textAlign: 'center', color: 'var(--text-primary)', marginBottom: '28px', fontSize: '24px', fontWeight: 700 }}>Join Our Talent Pool</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Full Name *</label>
@@ -83,11 +107,11 @@ const Careers = () => {
               </div>
               <div className="form-group">
                 <label>Upload Resume (Max 10MB)</label>
-                <input type="file" accept=".pdf,.doc,.docx" style={{padding: '10px 0'}} />
+                <input type="file" accept=".pdf,.doc,.docx" style={{ padding: '10px 0' }} />
               </div>
-              <button type="submit" className="btn btn-green" style={{width: '100%'}}>Submit Application</button>
+              <button type="submit" className="btn btn-green" style={{ width: '100%' }}>Submit Application</button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

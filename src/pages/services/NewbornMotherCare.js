@@ -25,33 +25,33 @@ const NewbornMotherCare = () => {
 
               <h2>Our Services Include</h2>
 
-              <h3 style={{color: '#1a6e5c', marginTop: '20px'}}>Pregnancy & Prenatal Support</h3>
+              <h3 style={{color: 'var(--primary)', marginTop: '20px'}}>Pregnancy & Prenatal Support</h3>
               <ul className="service-features-list">
                 <li>Guidance through every stage of pregnancy with qualified midwives</li>
                 <li>Regular baby development tracking and monitoring</li>
                 <li>Advice and emotional/physical support at each pregnancy stage</li>
               </ul>
 
-              <h3 style={{color: '#1a6e5c'}}>Postpartum & Newborn Care</h3>
+              <h3 style={{color: 'var(--primary)'}}>Postpartum & Newborn Care</h3>
               <ul className="service-features-list">
                 <li>Professional midwifery services for new mothers</li>
                 <li>Newborn care and support from certified specialists</li>
                 <li>Special care for twins, triplets, or premature infants</li>
               </ul>
 
-              <h3 style={{color: '#1a6e5c'}}>Feeding & Nutrition Support</h3>
+              <h3 style={{color: 'var(--primary)'}}>Feeding & Nutrition Support</h3>
               <ul className="service-features-list">
                 <li>Breastfeeding consultations in your home setting</li>
                 <li>Guidance on comfortable feeding positions and techniques</li>
               </ul>
 
-              <h3 style={{color: '#1a6e5c'}}>Sleep & Development</h3>
+              <h3 style={{color: 'var(--primary)'}}>Sleep & Development</h3>
               <ul className="service-features-list">
                 <li>Sleep training and consultation services</li>
                 <li>Personalized sleeping and feeding schedules</li>
               </ul>
 
-              <h3 style={{color: '#1a6e5c'}}>Parent Education</h3>
+              <h3 style={{color: 'var(--primary)'}}>Parent Education</h3>
               <ul className="service-features-list">
                 <li>Five-week internationally accredited infant massage course</li>
                 <li>First aid training for parents and nannies</li>

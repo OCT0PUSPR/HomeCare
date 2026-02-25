@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Sparkles, Sun, Scissors, Shield, Leaf, Scale, Pill, Brain } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import ServiceSidebar from '../../components/ServiceSidebar';
 
 const ivDrips = [
-  { name: 'Anti-Aging Vitamins IV Drip', icon: '&#10024;', desc: 'Antioxidants and minerals to reduce fine lines, boost collagen and skin elasticity.' },
-  { name: 'Skin Glowing IV Drip', icon: '&#128171;', desc: 'Brighten complexion, even out skin tone, and reduce pigmentation.' },
-  { name: 'Anti Hair Loss IV Drip', icon: '&#128135;', desc: 'Essential vitamins and amino acids to strengthen hair follicles.' },
-  { name: 'Immune Booster IV Drip', icon: '&#128170;', desc: 'Vitamin C, Zinc, Magnesium, and Vitamin B1 to strengthen immune defenses.' },
-  { name: 'Detox IV Drip', icon: '&#127807;', desc: 'Supports liver function and eliminates toxins using vitamins and antioxidants.' },
-  { name: 'Weight Loss IV Drip', icon: '&#9878;&#65039;', desc: 'Aids fat metabolism and energy enhancement for weight management.' },
-  { name: 'Multivitamins IV Drip', icon: '&#128138;', desc: 'Comprehensive nutritional support for overall wellness and hormonal balance.' },
-  { name: 'Anti-Stress IV Drip', icon: '&#128524;', desc: 'Reduces oxidative stress while enhancing strength, stamina, and performance.' },
+  { name: 'Anti-Aging Vitamins IV Drip', Icon: Sparkles, color: '#0056b3', desc: 'Antioxidants and minerals to reduce fine lines, boost collagen and skin elasticity.' },
+  { name: 'Skin Glowing IV Drip', Icon: Sun, color: '#0056b3', desc: 'Brighten complexion, even out skin tone, and reduce pigmentation.' },
+  { name: 'Anti Hair Loss IV Drip', Icon: Scissors, color: '#0056b3', desc: 'Essential vitamins and amino acids to strengthen hair follicles.' },
+  { name: 'Immune Booster IV Drip', Icon: Shield, color: '#0056b3', desc: 'Vitamin C, Zinc, Magnesium, and Vitamin B1 to strengthen immune defenses.' },
+  { name: 'Detox IV Drip', Icon: Leaf, color: '#0056b3', desc: 'Supports liver function and eliminates toxins using vitamins and antioxidants.' },
+  { name: 'Weight Loss IV Drip', Icon: Scale, color: '#0056b3', desc: 'Aids fat metabolism and energy enhancement for weight management.' },
+  { name: 'Multivitamins IV Drip', Icon: Pill, color: '#0056b3', desc: 'Comprehensive nutritional support for overall wellness and hormonal balance.' },
+  { name: 'Anti-Stress IV Drip', Icon: Brain, color: '#0056b3', desc: 'Reduces oxidative stress while enhancing strength, stamina, and performance.' },
 ];
 
 const IVDrip = () => {
@@ -37,7 +38,9 @@ const IVDrip = () => {
               <div className="iv-drip-grid">
                 {ivDrips.map((drip, i) => (
                   <div className="iv-drip-card" key={i}>
-                    <div className="iv-drip-icon" dangerouslySetInnerHTML={{__html: drip.icon}} />
+                    <div className="iv-drip-icon">
+                      <drip.Icon size={32} color={drip.color} strokeWidth={1.5} />
+                    </div>
                     <h4>{drip.name}</h4>
                     <p>{drip.desc}</p>
                   </div>

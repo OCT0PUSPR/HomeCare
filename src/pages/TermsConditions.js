@@ -66,7 +66,7 @@ const TermsConditions = () => {
             <h2>Contact</h2>
             <p>
               For questions regarding these terms, please contact us at{' '}
-              <a href="mailto:info@emirateshomecare.ae" style={{color: '#1a6e5c'}}>info@emirateshomecare.ae</a>.
+              <a href="mailto:info@emirateshomecare.ae" style={{color: 'var(--primary)'}}>info@emirateshomecare.ae</a>.
             </p>
           </div>
         </div>

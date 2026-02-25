@@ -53,7 +53,7 @@ const CopyrightPolicy = () => {
             <h2>Contact</h2>
             <p>
               For copyright-related inquiries, contact{' '}
-              <a href="mailto:info@emirateshomecare.ae" style={{color: '#1a6e5c'}}>info@emirateshomecare.ae</a>.
+              <a href="mailto:info@emirateshomecare.ae" style={{color: 'var(--primary)'}}>info@emirateshomecare.ae</a>.
             </p>
           </div>
         </div>

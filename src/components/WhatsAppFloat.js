@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MessageCircle, ArrowUp } from 'lucide-react';
 
 const WhatsAppFloat = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -24,11 +25,11 @@ const WhatsAppFloat = () => {
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
-        WA
+        <MessageCircle size={26} />
       </a>
       {showScroll && (
         <button className="scroll-top" onClick={scrollToTop} aria-label="Scroll to top">
-          &#8593;
+          <ArrowUp size={18} />
         </button>
       )}
     </>

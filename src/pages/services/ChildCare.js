@@ -22,19 +22,19 @@ const ChildCare = () => {
                 respects your boundaries and personal space.
               </p>
 
-              <h3 style={{color: '#1a6e5c', marginTop: '25px'}}>Newborn Care Services</h3>
+              <h3 style={{color: 'var(--primary)', marginTop: '25px'}}>Newborn Care Services</h3>
               <p>Professional support during the first weeks of a baby's life, helping parents adjust and providing reliable resources.</p>
 
-              <h3 style={{color: '#1a6e5c'}}>Home Babysitting Services</h3>
+              <h3 style={{color: 'var(--primary)'}}>Home Babysitting Services</h3>
               <p>Flexible arrangements ranging from single nights to extended, permanent childcare solutions within your home.</p>
 
-              <h3 style={{color: '#1a6e5c'}}>Home Childcare Services</h3>
+              <h3 style={{color: 'var(--primary)'}}>Home Childcare Services</h3>
               <p>Professional care for children of all ages delivered by qualified, certified staff.</p>
 
-              <h3 style={{color: '#1a6e5c'}}>Office & Hotel Babysitting</h3>
+              <h3 style={{color: 'var(--primary)'}}>Office & Hotel Babysitting</h3>
               <p>Supervised childcare allowing parents to pursue activities while children remain engaged and safe in professional settings.</p>
 
-              <h3 style={{color: '#1a6e5c'}}>Travel Companion Services</h3>
+              <h3 style={{color: 'var(--primary)'}}>Travel Companion Services</h3>
               <p>A responsible, fully qualified nurse accompanies your family during travel, ensuring continuous care throughout journeys.</p>
 
               <h2 style={{marginTop: '30px'}}>Key Features</h2>

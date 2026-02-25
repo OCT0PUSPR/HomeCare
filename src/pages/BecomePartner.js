@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Handshake, Globe, TrendingUp } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+  })
+};
+
+const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
 
 const BecomePartner = () => {
   const [formData, setFormData] = useState({
@@ -26,31 +38,54 @@ const BecomePartner = () => {
 
       <section className="section">
         <div className="container">
-          <div className="section-title">
+          <motion.div
+            className="section-title"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <h2>Partnership Opportunities</h2>
             <p>Through our journey of 15 years of practice, we have achieved new milestones through our collaborations with our local and international partners.</p>
-          </div>
+          </motion.div>
 
-          <div className="partner-benefits">
-            <div className="partner-benefit-card">
-              <div className="partner-benefit-icon">&#129309;</div>
+          <motion.div
+            className="partner-benefits"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div className="partner-benefit-card" variants={fadeInUp}>
+              <div className="partner-benefit-icon">
+                <Handshake size={40} color="#0056b3" strokeWidth={1.5} />
+              </div>
               <h3>Collaborative Growth</h3>
               <p>We believe in partnerships that enhance service quality and expand our service portfolio for mutual benefit.</p>
-            </div>
-            <div className="partner-benefit-card">
-              <div className="partner-benefit-icon">&#127758;</div>
+            </motion.div>
+            <motion.div className="partner-benefit-card" variants={fadeInUp}>
+              <div className="partner-benefit-icon">
+                <Globe size={40} color="#0056b3" strokeWidth={1.5} />
+              </div>
               <h3>Local & International</h3>
               <p>We welcome partners from all backgrounds with unique support services that complement our healthcare offerings.</p>
-            </div>
-            <div className="partner-benefit-card">
-              <div className="partner-benefit-icon">&#128200;</div>
+            </motion.div>
+            <motion.div className="partner-benefit-card" variants={fadeInUp}>
+              <div className="partner-benefit-icon">
+                <TrendingUp size={40} color="#0056b3" strokeWidth={1.5} />
+              </div>
               <h3>Proven Track Record</h3>
               <p>With over 15 years of experience and 1,000+ happy patients, we bring credibility to every partnership.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="form-container">
-            <h2 style={{textAlign: 'center', color: '#2c3e50', marginBottom: '30px'}}>Partnership Inquiry</h2>
+          <motion.div
+            className="form-container"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{ textAlign: 'center', color: 'var(--text-primary)', marginBottom: '28px', fontSize: '24px', fontWeight: 700 }}>Partnership Inquiry</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Organisation Name *</label>
@@ -84,9 +119,9 @@ const BecomePartner = () => {
                 <label>How would you like to collaborate?</label>
                 <textarea name="collaboration" value={formData.collaboration} onChange={handleChange} placeholder="Tell us about the partnership you envision..."></textarea>
               </div>
-              <button type="submit" className="btn btn-green" style={{width: '100%'}}>Submit Inquiry</button>
+              <button type="submit" className="btn btn-green" style={{ width: '100%' }}>Submit Inquiry</button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

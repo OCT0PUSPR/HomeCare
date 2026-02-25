@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
             <h2>Contact Us</h2>
             <p>
               If you have questions about this privacy policy, please contact us at{' '}
-              <a href="mailto:info@emirateshomecare.ae" style={{color: '#1a6e5c'}}>info@emirateshomecare.ae</a>.
+              <a href="mailto:info@emirateshomecare.ae" style={{color: 'var(--primary)'}}>info@emirateshomecare.ae</a>.
             </p>
           </div>
         </div>

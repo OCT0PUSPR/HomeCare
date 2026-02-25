@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import {
+  HeartHandshake, Lightbulb, Users, DollarSign, UserCheck, Clock
+} from 'lucide-react';
 import PageHeader from '../components/PageHeader';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
+  })
+};
+
+const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
+
+const features = [
+  { icon: HeartHandshake, color: '#0056b3', title: 'Patient Centric Care', desc: 'Your well-being is at the center of everything we do.' },
+  { icon: Lightbulb, color: '#0056b3', title: 'Innovative Approach', desc: 'Modern methods for the best care outcomes.' },
+  { icon: Users, color: '#0056b3', title: 'Personalised Care', desc: 'Tailored healthcare plans for every individual.' },
+  { icon: DollarSign, color: '#0056b3', title: 'Cost-Effective', desc: 'Quality healthcare that respects your budget.' },
+  { icon: UserCheck, color: '#0056b3', title: 'Professional Experts', desc: 'Certified, experienced healthcare professionals.' },
+  { icon: Clock, color: '#0056b3', title: 'By Your Side 24/7', desc: 'Round-the-clock availability for all care needs.' },
+];
 
 const BookAppointment = () => {
   const [formData, setFormData] = useState({
@@ -30,46 +53,47 @@ const BookAppointment = () => {
         breadcrumbItems={[{ label: 'Book an Appointment' }]}
       />
 
-      {/* Why Choose Us */}
       <section className="section section-light">
         <div className="container">
           <div className="section-title">
             <h2>Why Choose Emirates Home Care</h2>
             <p>Caregiving is a sacred relationship we create with the families we work with.</p>
           </div>
-          <div className="features-grid">
-            <div className="feature-item">
-              <div className="feature-icon">&#128149;</div>
-              <div><h4>Patient Centric Care</h4><p>Your well-being is at the center of everything we do.</p></div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon">&#128161;</div>
-              <div><h4>Innovative Approach</h4><p>Modern methods for the best care outcomes.</p></div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon">&#129309;</div>
-              <div><h4>Personalised Care</h4><p>Tailored healthcare plans for every individual.</p></div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon">&#128176;</div>
-              <div><h4>Cost-Effective</h4><p>Quality healthcare that respects your budget.</p></div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon">&#128100;</div>
-              <div><h4>Professional Experts</h4><p>Certified, experienced healthcare professionals.</p></div>
-            </div>
-            <div className="feature-item">
-              <div className="feature-icon">&#128338;</div>
-              <div><h4>By Your Side 24/7</h4><p>Round-the-clock availability for all care needs.</p></div>
-            </div>
-          </div>
+          <motion.div
+            className="features-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            {features.map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div className="feature-item" key={feature.title} variants={fadeInUp} custom={i}>
+                  <div className="feature-icon">
+                    <Icon size={26} color={feature.color} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h4>{feature.title}</h4>
+                    <p>{feature.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="form-container">
-            <h2 style={{textAlign: 'center', color: '#2c3e50', marginBottom: '30px'}}>Request an Appointment</h2>
+          <motion.div
+            className="form-container"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{ textAlign: 'center', color: 'var(--text-primary)', marginBottom: '28px', fontSize: '24px', fontWeight: 700 }}>Request an Appointment</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Full Name *</label>
@@ -124,18 +148,18 @@ const BookAppointment = () => {
               <div className="form-checkbox">
                 <input type="checkbox" name="terms" checked={formData.terms} onChange={handleChange} id="terms" />
                 <label htmlFor="terms">
-                  I agree to the <Link to="/terms-conditions" style={{color: '#1a6e5c'}}>Terms & Conditions</Link>.
+                  I agree to the <Link to="/terms-conditions" style={{ color: 'var(--primary)' }}>Terms & Conditions</Link>.
                   An urgent fee will be applied to bookings within a five-hour window.
                   A transportation fee of AED 105 applies for services between 10 pm to 7 am.
                 </label>
               </div>
-              <button type="submit" className="btn btn-green" style={{width: '100%'}}>Book Appointment</button>
+              <button type="submit" className="btn btn-green" style={{ width: '100%' }}>Book Appointment</button>
               <p className="form-note">
                 * Any applications or job-related messages sent here will not be reviewed.
-                Please use our <Link to="/careers" style={{color: '#1a6e5c'}}>careers page</Link>.
+                Please use our <Link to="/careers" style={{ color: 'var(--primary)' }}>careers page</Link>.
               </p>
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

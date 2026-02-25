@@ -48,7 +48,7 @@ const CancellationPolicy = () => {
             <p>
               For complaints or dispute resolution, customers should consult the FAQs section
               or contact{' '}
-              <a href="mailto:info@emirateshomecare.ae" style={{color: '#1a6e5c'}}>info@emirateshomecare.ae</a>.
+              <a href="mailto:info@emirateshomecare.ae" style={{color: 'var(--primary)'}}>info@emirateshomecare.ae</a>.
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 
 const services = [
   { path: '/services/newborn-mother-care', label: 'Newborn & Mother Care' },
@@ -30,7 +31,7 @@ const ServiceSidebar = () => {
                 to={service.path}
                 className={location.pathname === service.path ? 'active-service' : ''}
               >
-                &#8250; {service.label}
+                <ChevronRight size={14} /> {service.label}
               </Link>
             </li>
           ))}

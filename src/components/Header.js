@@ -1,25 +1,37 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, Menu, X, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path ? 'active' : '';
+
+  const toggleDropdown = (name) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   return (
     <>
       <div className="top-bar">
         <div className="container">
           <div className="top-bar-contact">
-            <a href="tel:+9718006877464">800-NURSING (687-7464)</a>
-            <a href="mailto:info@emirateshomecare.ae">info@emirateshomecare.ae</a>
+            <a href="tel:+9718006877464">
+              <Phone size={14} />
+              800-NURSING (687-7464)
+            </a>
+            <a href="mailto:info@emirateshomecare.ae">
+              <Mail size={14} />
+              info@emirateshomecare.ae
+            </a>
           </div>
           <div className="top-bar-social">
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="LinkedIn">IN</a>
-            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="Facebook"><Facebook size={16} /></a>
+            <a href="#" aria-label="Instagram"><Instagram size={16} /></a>
+            <a href="#" aria-label="LinkedIn"><Linkedin size={16} /></a>
+            <a href="#" aria-label="YouTube"><Youtube size={16} /></a>
           </div>
         </div>
       </div>
@@ -33,16 +45,16 @@ const Header = () => {
             </div>
           </Link>
 
-          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
           <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <li><Link to="/" className={isActive('/')}>Home</Link></li>
-            <li>
-              <Link to="/about" className={isActive('/about')}>About Us</Link>
+            <li className={openDropdown === 'about' ? 'open' : ''}>
+              <Link to="/about" className={isActive('/about')} onClick={(e) => { if (window.innerWidth <= 768) { e.preventDefault(); toggleDropdown('about'); } }}>
+                About Us <ChevronDown size={14} style={{ marginLeft: 2, opacity: 0.5 }} />
+              </Link>
               <ul className="dropdown">
                 <li><Link to="/our-team">Our Team</Link></li>
                 <li><Link to="/careers">Careers</Link></li>
@@ -54,8 +66,10 @@ const Header = () => {
                 <li><Link to="/faqs">FAQs</Link></li>
               </ul>
             </li>
-            <li>
-              <Link to="/services" className={isActive('/services')}>Services</Link>
+            <li className={openDropdown === 'services' ? 'open' : ''}>
+              <Link to="/services" className={isActive('/services')} onClick={(e) => { if (window.innerWidth <= 768) { e.preventDefault(); toggleDropdown('services'); } }}>
+                Services <ChevronDown size={14} style={{ marginLeft: 2, opacity: 0.5 }} />
+              </Link>
               <ul className="dropdown">
                 <li><Link to="/services/newborn-mother-care">Newborn & Mother Care</Link></li>
                 <li><Link to="/services/child-care">Child Care</Link></li>
